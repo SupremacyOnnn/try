@@ -12,21 +12,36 @@ const SearchBar = () => {
   const searchHistory = useSearchStore((state) => state.searchHistory);
   const deleteSearchItem = useSearchStore((state) => state.deleteSearchItem);
 
+  const data = useSearchStore((state) => state.data);
+  const segmentedControl = useSearchStore((state) => state.segmentedControl);
+
+  const [suggestionList, setSuggestionList] = useState([]);
+  const [suggestionNames, setSuggestionNames] = useState([]);
+
   useEffect(() => {
     if (searchedItem.length > 0) {
       setSuggestion(true);
+      const filteredSuggestions = data.filter(
+        (item) =>
+          item.tags.some(
+            (tag) => tag.toLowerCase() === segmentedControl.toLowerCase()
+          ) && item.name.toLowerCase().includes(searchedItem.toLowerCase())
+      );
+      setSuggestionList(filteredSuggestions);
+      const names = filteredSuggestions.map((item) => item.name);
+      setSuggestionNames(names);
     } else {
       setSuggestion(false);
+      setSuggestionList([]);
+      setSuggestionNames([]);
     }
-  }, [searchedItem]);
+  }, [searchedItem, segmentedControl, data]);
 
   const handleChange = (value) => {
     setSearchedItem(value);
-    console.log("handleChange:", value);
   };
 
   const handleSearchSubmit = (value) => {
-    console.log("handleSearchSubmit:", value);
     if (value.trim()) {
       addSearchItem(value);
     }
@@ -34,31 +49,28 @@ const SearchBar = () => {
   };
 
   const handleFocus = () => {
-    console.log("Input focused");
     setIsFocused(true);
   };
 
   const handleBlur = (value) => {
-    console.log("Input blurred");
-    setTimeout(() => setIsFocused(false), 200);
+    // setTimeout(() => setIsFocused(false), 200);
+    setIsFocused(false);
     if (value.trim()) {
       addSearchItem(value);
     }
   };
 
   const handleSelectHistoryItem = (item) => {
-    console.log("History item selected:", item);
     setSearchedItem(item);
     handleSearchSubmit(item);
   };
 
   const handleDeleteHistoryItem = (item) => {
-    if (searchedItem == item) {
+    if (searchedItem === item) {
       setSearchedItem("");
     }
     deleteSearchItem(item);
   };
-  //   console.log("SearchBar rendered with searchHistory:", searchHistory);
 
   return (
     <div className="py-2 px-2 relative">
@@ -69,8 +81,7 @@ const SearchBar = () => {
               <FaSearch className="absolute text-gray-400 top-3 left-4" />
               <input
                 type="text"
-                className="bg-white h-10 w-full px-12 rounded-lg border-solid border-2
-                  border-gray-400 focus:outline-black hover:cursor-pointer"
+                className="bg-white h-10 w-full px-12 rounded-lg border-solid border-2 border-gray-400 focus:outline-black hover:cursor-pointer"
                 autoComplete="on"
                 name=""
                 placeholder="Try to search ..."
@@ -79,9 +90,9 @@ const SearchBar = () => {
                 onFocus={handleFocus}
                 onBlur={(e) => handleBlur(e.target.value)}
               />
-              {isFocused && searchHistory.length > 0 && (
+              {isFocused && (
                 <SearchHistoryList
-                  searchHistory={searchHistory}
+                  searchHistory={suggestion ? suggestionNames : searchHistory}
                   onSelect={handleSelectHistoryItem}
                   onDelete={handleDeleteHistoryItem}
                   suggestion={suggestion}
@@ -91,6 +102,12 @@ const SearchBar = () => {
           </div>
         </div>
       </div>
+      {/* <div className="mt-4">
+        <h2 className="text-lg font-bold">Fetched Data:</h2>
+        <pre className="text-sm text-gray-600">
+          {JSON.stringify(suggestionNames, null, 2)}
+        </pre>
+      </div> */}
     </div>
   );
 };

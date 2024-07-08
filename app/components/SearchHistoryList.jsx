@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import PropTypes from "prop-types";
-import { FaTrash } from "react-icons/fa";
+import { FaSearch, FaTrash } from "react-icons/fa";
 
 const SearchHistoryList = ({
   searchHistory,
@@ -19,15 +19,17 @@ const SearchHistoryList = ({
           >
             <span onMouseDown={() => onSelect(item)}>{item}</span>
             {!suggestion && (
-              <button
-                onMouseDown={(e) => {
-                  e.stopPropagation();
-                  onDelete(item);
-                }}
-                className="ml-4 text-red-500 hover:text-red-700 focus:outline-none"
-              >
-                <FaTrash />
-              </button>
+              <div>
+                <button
+                  onMouseDown={(e) => {
+                    e.stopPropagation();
+                    onDelete(item);
+                  }}
+                  className="ml-4 text-red-500 hover:text-red-700 focus:outline-none"
+                >
+                  <FaTrash />
+                </button>
+              </div>
             )}
           </li>
         ))}

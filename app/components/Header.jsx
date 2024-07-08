@@ -1,18 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import SegmentedControl from "./SegmentedControl";
 import useSearchStore from "../useSearchStore";
 
 const Header = () => {
-  const [selected, setSelected] = useState("Featured");
+  // const selectedSegment = useSearchStore((state) => state.segmentedControl);
   const updateSegmentedControl = useSearchStore(
     (state) => state.updateSegmentedControl
   );
   const handleSegmentChange = (segment) => {
-    setSelected(segment);
     updateSegmentedControl(segment);
   };
+  const data = useSearchStore((state) => state.data);
 
   return (
     <div className="flex flex-col justify-center items-center">

@@ -3,6 +3,18 @@ import { create } from "zustand";
 const useSearchStore = create((set) => ({
   searchHistory: [],
   segmentedControl: "featured",
+  data: [],
+
+  fetchData: async () => {
+    try {
+      const response = await fetch("/data.json");
+      const jsonData = await response.json();
+      set({ data: jsonData });
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
+    }
+  },
+
   addSearchItem: (item) =>
     set((state) => {
       const newHistory = state.searchHistory.filter(
