@@ -1,14 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import useSearchStore from "../useSearchStore";
 import SearchHistoryList from "./SearchHistoryList";
 
 const SearchBar = () => {
   const [searchedItem, setSearchedItem] = useState("");
+  const [suggestion, setSuggestion] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const addSearchItem = useSearchStore((state) => state.addSearchItem);
   const searchHistory = useSearchStore((state) => state.searchHistory);
+  const deleteSearchItem = useSearchStore((state) => state.deleteSearchItem);
+
+  useEffect(() => {
+    if (searchedItem.length > 0) {
+      setSuggestion(true);
+    } else {
+      setSuggestion(false);
+    }
+  }, [searchedItem]);
 
   const handleChange = (value) => {
     setSearchedItem(value);
@@ -42,7 +52,13 @@ const SearchBar = () => {
     handleSearchSubmit(item);
   };
 
-  console.log("SearchBar rendered with searchHistory:", searchHistory);
+  const handleDeleteHistoryItem = (item) => {
+    if (searchedItem == item) {
+      setSearchedItem("");
+    }
+    deleteSearchItem(item);
+  };
+  //   console.log("SearchBar rendered with searchHistory:", searchHistory);
 
   return (
     <div className="py-2 px-2 relative">
@@ -57,7 +73,7 @@ const SearchBar = () => {
                   border-gray-400 focus:outline-black hover:cursor-pointer"
                 autoComplete="on"
                 name=""
-                placeholder="Search here"
+                placeholder="Try to search ..."
                 value={searchedItem}
                 onChange={(e) => handleChange(e.target.value)}
                 onFocus={handleFocus}
@@ -67,6 +83,8 @@ const SearchBar = () => {
                 <SearchHistoryList
                   searchHistory={searchHistory}
                   onSelect={handleSelectHistoryItem}
+                  onDelete={handleDeleteHistoryItem}
+                  suggestion={suggestion}
                 />
               )}
             </div>

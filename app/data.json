@@ -1,0 +1,219 @@
+[
+    {   
+        "name":"Kpi1",
+        "description":"Short Desccription goes here",
+        "tags":["kpi","trending","featured"],
+        "questions":[
+            {
+                "question":"Questtion 1",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 2",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 3",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 4",
+                "answer":"Short Desription"
+            }
+        ],
+        "metricId":["metricId1","metricId2","metricId3"],
+        "calculation":"",
+        "visualAvialable":"Universal",
+        "affliateApplicability":"Universal"
+    },
+    {   
+        "name":"Kpi2",
+        "description":"Short Desccription goes here",
+        "tags":["kpi","featured"],
+        "questions":[
+            {
+                "question":"Questtion 4",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 2",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 5",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 3",
+                "answer":"Short Desription"
+            }
+        ],
+        "metricId":["metricId4","metricId5","metricId6"],
+        "calculation":"",
+        "visualAvialable":"Universal",
+        "affliateApplicability":"Universal"
+    },
+    {   
+        "name":"Kpi3",
+        "description":"Short Desccription goes here",
+        "tags":["kpi","trending","featured"],
+        "questions":[
+            {
+                "question":"Questtion 7",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 8",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 9",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 10",
+                "answer":"Short Desription"
+            }
+        ],
+        "metricId":["metricId1","metricId2","metricId3"],
+        "calculation":"",
+        "visualAvialable":"Universal",
+        "affliateApplicability":"Universal"
+    },
+    {   
+        "name":"Kpi4",
+        "description":"Short Desccription goes here",
+        "tags":["kpi","featured"],
+        "questions":[
+            {
+                "question":"Questtion 1",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 2",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 3",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 4",
+                "answer":"Short Desription"
+            }
+        ],
+        "metricId":["metricId1","metricId2","metricId3"],
+        "calculation":"",
+        "visualAvialable":"Universal",
+        "affliateApplicability":"Universal"
+    },
+    {   
+        "name":"Item5",
+        "description":"Short Desccription goes here",
+        "tags":["kpi"],
+        "questions":[
+            {
+                "question":"Questtion 5",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 6",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 7",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 8",
+                "answer":"Short Desription"
+            }
+        ],
+        "metricId":["metricId1","metricId2","metricId3"],
+        "calculation":"",
+        "visualAvialable":"Universal",
+        "affliateApplicability":"Universal"
+    },
+    {   
+        "name":"Item6",
+        "description":"Short Desccription goes here",
+        "tags":["kpi","trending","featured"],
+        "questions":[
+            {
+                "question":"Questtion 1",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 2",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 3",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 4",
+                "answer":"Short Desription"
+            }
+        ],
+        "metricId":["metricId1","metricId2","metricId3"],
+        "calculation":"",
+        "visualAvialable":"Universal",
+        "affliateApplicability":"Universal"
+    },
+    {   
+        "name":"Kpi7",
+        "description":"Short Desccription goes here",
+        "tags":["kpi","trending","featured"],
+        "questions":[
+            {
+                "question":"Questtion 1",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 2",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 3",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 4",
+                "answer":"Short Desription"
+            }
+        ],
+        "metricId":["metricId1","metricId2","metricId3"],
+        "calculation":"",
+        "visualAvialable":"Universal",
+        "affliateApplicability":"Universal"
+    },
+    {   
+        "name":"Kpi8",
+        "description":"Short Desccription goes here",
+        "tags":["kpi"],
+        "questions":[
+            {
+                "question":"Questtion 1",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 2",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 3",
+                "answer":"Short Desription"
+            },
+            {
+                "question":"Questtion 4",
+                "answer":"Short Desription"
+            }
+        ],
+        "metricId":["metricId1","metricId2","metricId3"],
+        "calculation":"",
+        "visualAvialable":"Universal",
+        "affliateApplicability":"Universal"
+    }
+
+]
