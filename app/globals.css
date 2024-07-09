@@ -9,3 +9,14 @@
     z-index: 20; 
   }
   
+.grid-container {
+  min-height: 50vh; 
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 4px;
+}

@@ -74,14 +74,14 @@ const SearchBar = () => {
 
   return (
     <div className="py-2 px-2 relative">
-      <div className="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
+      <div className="max-w-lg min-w-sm mx-auto rounded-lg overflow-hidden md:max-w-xl">
         <div className="md:flex">
           <div className="w-full p-3">
             <div className="relative">
               <FaSearch className="absolute text-gray-400 top-3 left-4" />
               <input
                 type="text"
-                className="bg-white h-10 w-full px-12 rounded-lg border-solid border-2 border-gray-400 focus:outline-black hover:cursor-pointer"
+                className=" bg-white h-10 w-full px-12 rounded-lg border-solid border-2 border-gray-400 focus:outline-black hover:cursor-pointer"
                 autoComplete="on"
                 name=""
                 placeholder="Try to search ..."

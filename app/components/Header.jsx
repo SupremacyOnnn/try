@@ -24,7 +24,7 @@ const Header = () => {
       <h1 className="my-2 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white text-center">
         Library
       </h1>
-      <p className="mx-auto mt-4 text-gray-500">
+      <p className="mx-5 sm:mx-auto mt-4 text-gray-500">
         Browse for assets needed to report and present analysis.
       </p>
       <SearchBar />

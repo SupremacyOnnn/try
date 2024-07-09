@@ -10,16 +10,20 @@ const SegmentedControl = ({ segments, onSegmentChange }) => {
   };
 
   return (
-    <div className="flex rounded-md border-2 border-solid bg-gray-200 border-gray-400">
+    <div className="flex flex-wrap sm:flex-nowrap rounded-md border-2 border-solid bg-gray-200 border-gray-400">
       {segments.map((segment, index) => (
         <button
           key={index}
           onClick={() => handleSegmentClick(segment)}
-          className={`w-[135px] px-3 py-1 rounded-sm transition-all duration-300 text-gray-400 ${
+          className={`w-full sm:w-[135px] px-3 py-1 rounded-sm transition-all duration-300 text-gray-400 ${
             selectedSegment === segment
               ? "bg-white text-black font-bold"
               : "bg-gray-200 text-gray-700"
-          } ${index < segments.length - 1 ? "border-r border-gray-400" : ""}`}
+          } ${
+            index < segments.length - 1
+              ? "border-b sm:border-r sm:border-b-0 border-gray-400"
+              : ""
+          }`}
         >
           {segment}
         </button>
