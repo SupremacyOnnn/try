@@ -5,7 +5,12 @@ import SegmentedControl from "./SegmentedControl";
 import useSearchStore from "../useSearchStore";
 
 const Header = () => {
-  // const selectedSegment = useSearchStore((state) => state.segmentedControl);
+  const fetchData = useSearchStore((state) => state.fetchData);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   const updateSegmentedControl = useSearchStore(
     (state) => state.updateSegmentedControl
   );
