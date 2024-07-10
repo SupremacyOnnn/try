@@ -73,7 +73,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="py-2 px-2 relative">
+    <div className="py-2 px-2 relative w-full">
       <div className="max-w-lg min-w-sm mx-auto rounded-lg overflow-hidden md:max-w-xl">
         <div className="md:flex">
           <div className="w-full p-3">
