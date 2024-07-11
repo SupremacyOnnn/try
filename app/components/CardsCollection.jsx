@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Cards from "./Cards";
+import Link from "next/link";
 
 const CardsCollection = ({ name = "default name", data = [] }) => {
   if (name == "trending") {
@@ -43,7 +44,9 @@ const CardsCollection = ({ name = "default name", data = [] }) => {
       </div>
       <main className="flex flex-row items-center px-24 py-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {data.slice(0, showAll ? len : lim).map((card) => (
-          <Cards key={card.name} id={card.name} data={card} />
+          <Link key={card.name} href={`/info/${card.name}`}>
+            <Cards key={card.name} id={card.name} data={card} />
+          </Link>
         ))}
 
         {data.length > lim ? (

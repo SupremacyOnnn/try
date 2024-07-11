@@ -34,6 +34,17 @@ const useSearchStore = create((set) => ({
 
   clearSearchHistory: () => set({ searchHistory: [] }),
   updateSegmentedControl: (newValue) => set({ segmentedControl: newValue }),
+
+  favorites: [],
+  toggleFavorite: (name) =>
+    set((state) => {
+      const isFavorite = state.favorites.includes(name);
+      if (isFavorite) {
+        return { favorites: state.favorites.filter((fav) => fav !== name) };
+      } else {
+        return { favorites: [...state.favorites, name] };
+      }
+    }),
 }));
 
 export default useSearchStore;

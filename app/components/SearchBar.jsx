@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import useSearchStore from "../useSearchStore";
 import SearchHistoryList from "./SearchHistoryList";
+import { getAllData } from "../db/db";
 
 const SearchBar = () => {
   const [searchedItem, setSearchedItem] = useState("");
@@ -12,7 +13,7 @@ const SearchBar = () => {
   const searchHistory = useSearchStore((state) => state.searchHistory);
   const deleteSearchItem = useSearchStore((state) => state.deleteSearchItem);
 
-  const data = useSearchStore((state) => state.data);
+  const data = getAllData();
   const segmentedControl = useSearchStore((state) => state.segmentedControl);
 
   const [suggestionList, setSuggestionList] = useState([]);

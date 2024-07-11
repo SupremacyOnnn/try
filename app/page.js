@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from "react";
 import CardsCollection from "./components/CardsCollection";
 import useSearchStore from "./useSearchStore";
+import Header from "./components/Header";
+import { getAllData } from "./db/db";
 
 const page = () => {
-  const data = useSearchStore((state) => state.data);
+  const data = getAllData();
   const searchedItem = useSearchStore((state) => state.searchHistory);
   const segmentedControl = useSearchStore((state) => state.segmentedControl);
 
@@ -30,14 +32,7 @@ const page = () => {
   }, [data, searchedItem, segmentedControl]);
   return (
     <div>
-      {/* <CardsCollection name="Trending" />
-      <div className="mt-4">
-        <h2 className="text-lg font-bold">Fetched Data:</h2>
-        <pre className="text-sm text-gray-600">
-          {JSON.stringify(filteredData, null, 2)}
-        </pre>
-      </div>
-      <p>{searchedItem[0]}</p> */}
+      <Header />
       <CardsCollection name={segmentedControl} data={filteredData} />
       {segmentedControl == "featured" && (
         <CardsCollection name="trending" data={filteredData} />
