@@ -34,7 +34,7 @@ const page = () => {
     <div>
       <Header />
       <CardsCollection name={segmentedControl} data={filteredData} />
-      {segmentedControl == "featured" && (
+      {segmentedControl.toLowerCase() === "featured" && (
         <CardsCollection name="trending" data={filteredData} />
       )}
     </div>

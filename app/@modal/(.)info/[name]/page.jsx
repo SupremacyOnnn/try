@@ -5,7 +5,7 @@ import React from "react";
 const page = ({ params: { name } }) => {
   return (
     <Modal>
-      <ModalShareableView name={name} />
+      <ModalShareableView name={name} modal={true} />
     </Modal>
   );
 };
