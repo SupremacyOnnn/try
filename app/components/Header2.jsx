@@ -1,5 +1,6 @@
 // Header.jsx
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 
 const Header = ({ handleGoBack, name, description, modal }) => {
   return (

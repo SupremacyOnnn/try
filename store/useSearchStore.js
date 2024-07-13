@@ -1,17 +1,23 @@
 import { create } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 
-const useSearchStore = create((set) => ({
+const searchStore = (set, get) => ({
   searchHistory: [],
   segmentedControl: "featured",
   data: [],
 
   fetchData: async () => {
-    try {
-      const response = await fetch("/data.json");
-      const jsonData = await response.json();
-      set({ data: jsonData });
-    } catch (error) {
-      console.error("Failed to fetch data:", error);
+    const currentState = get();
+    if (currentState.data.length === 0) {
+      try {
+        const response = await fetch("/data.json");
+        const jsonData = await response.json();
+        set({ data: jsonData });
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    } else {
+      console.log("Data already populated");
     }
   },
 
@@ -45,6 +51,14 @@ const useSearchStore = create((set) => ({
         return { favorites: [...state.favorites, name] };
       }
     }),
-}));
+});
+
+const useSearchStore = create(
+  devtools(
+    persist(searchStore, {
+      name: "searchStore",
+    })
+  )
+);
 
 export default useSearchStore;

@@ -1,4 +1,4 @@
-import LayoutHeader from "@/app/components/LayoutHeader";
+import LayoutHeader from "./LayoutHeader";
 
 const layout = ({ children, header, main }) => {
   return (

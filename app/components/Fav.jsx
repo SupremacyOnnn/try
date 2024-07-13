@@ -1,6 +1,7 @@
+import useSearchStore from "@/store/useSearchStore";
 import React from "react";
 import { FaBookmark } from "react-icons/fa";
-import useSearchStore from "../useSearchStore";
+// import useSearchStore from "../../store/useSearchStore";
 import { toast } from "react-toastify";
 
 const Fav = ({ filteredData }) => {

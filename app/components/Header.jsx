@@ -2,7 +2,8 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import SegmentedControl from "./SegmentedControl";
-import useSearchStore from "../useSearchStore";
+import useSearchStore from "@/store/useSearchStore";
+// import useSearchStore from "../../store/useSearchStore";
 
 const Header = () => {
   const updateSegmentedControl = useSearchStore(

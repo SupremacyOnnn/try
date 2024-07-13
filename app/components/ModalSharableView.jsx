@@ -1,20 +1,35 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getAllData } from "../db/db";
 import Detail from "./Detail";
 import Charts from "./Charts";
 import Question from "./Question";
 import Fav from "./Fav";
-import Preview from "./Preview";
 import Header2 from "./Header2";
+import useSearchStore from "@/store/useSearchStore";
+import AnimatedGif from "./AnimatedGif";
+// import useSearchStore from "../../store/useSearchStore";
 
 const ModalShareableView = ({ name, modal = false }) => {
   const router = useRouter();
-  const data = getAllData(name);
+  // const data = getAllData(name);
+  const { data, fetchData } = useSearchStore((state) => ({
+    data: state.data,
+    fetchData: state.fetchData,
+  }));
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      await fetchData();
+      setLoading(false);
+    };
+    loadData();
+  }, [fetchData]);
 
   const handleGoBack = () => {
-    router.back();
+    router.push(`/`);
   };
 
   const filterDataByName = (name) => {
@@ -27,7 +42,11 @@ const ModalShareableView = ({ name, modal = false }) => {
     filteredData?.tags.includes("layout") ||
     filteredData?.tags.includes("storyboard");
 
-  console.log(name, filterDataByName);
+  if (loading) {
+    return <AnimatedGif />;
+  }
+
+  // console.log(name, data, modal);
 
   return (
     <>
@@ -43,7 +62,12 @@ const ModalShareableView = ({ name, modal = false }) => {
       </div>
       <Question filteredData={filteredData} />
       <Fav filteredData={filteredData} />
-      {hasLayoutOrStoryboard && <Preview filteredData={filteredData} />}
+      {/* <AnimatedGif
+        className={"w-30 h-20"}
+        src={"https://media.tenor.com/kRbTCxEMfqsAAAAi/deadline-work-hard.gif"}
+        alt={"Hard Work"}
+      ></AnimatedGif> */}
+      {/* {hasLayoutOrStoryboard && <Preview filteredData={filteredData} />} */}
     </>
   );
 };
