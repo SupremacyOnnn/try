@@ -48,8 +48,6 @@ const Modal = ({ children }) => {
     );
   }
 
-  console.log("outside :" + pathname);
-
   return (
     <>
       {isOpen &&

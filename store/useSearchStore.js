@@ -5,6 +5,9 @@ const searchStore = (set, get) => ({
   searchHistory: [],
   segmentedControl: "featured",
   data: [],
+  recentTyped: "",
+
+  setRecentTyped: (value) => set({ recentTyped: value }),
 
   fetchData: async () => {
     const currentState = get();
@@ -50,6 +53,101 @@ const searchStore = (set, get) => ({
       } else {
         return { favorites: [...state.favorites, name] };
       }
+    }),
+  addKpiToLayout: (layoutName, kpiName) => {
+    set((state) => {
+      const newData = state.data.map((item) => {
+        if (item.name === layoutName) {
+          const updatedKpiUsed = [...item.KpiUsed, kpiName];
+          return {
+            ...item,
+            KpiUsed: updatedKpiUsed,
+            noOfKpiUse: item.noOfKpiUse + 1,
+          };
+        }
+        return item;
+      });
+      return { data: newData };
+    });
+  },
+
+  deleteKpiUsed: (layoutName, kpiName) => {
+    set((state) => {
+      const newData = state.data.map((item) => {
+        if (item.name === layoutName) {
+          const updatedKpiUsed = item.KpiUsed.filter(
+            (name) => name !== kpiName
+          );
+          return {
+            ...item,
+            KpiUsed: updatedKpiUsed,
+            noOfKpiUse: item.noOfKpiUse - 1,
+          };
+        }
+        return item;
+      });
+      return { data: newData };
+    });
+  },
+  addKpiToPages: (layoutName, kpiName, pageNumber) => {
+    set((state) => {
+      const newData = state.data.map((item) => {
+        if (item.name === layoutName) {
+          let pageNo = `page${pageNumber}`;
+          let pageData = item.pages;
+          pageData[pageNo] = [...pageData[pageNo], kpiName];
+          return {
+            ...item,
+            pages: pageData,
+          };
+        }
+        return item;
+      });
+      return { data: newData };
+    });
+  },
+  addPagesToLayout: (layoutName, pageNumber) => {
+    set((state) => {
+      const newData = state.data.map((item) => {
+        if (item.name.toLowerCase() === layoutName.toLowerCase()) {
+          let pageNo = `page${pageNumber}`;
+          let pageData = item.pages;
+          pageData[pageNo] = [];
+          return {
+            ...item,
+            amountOfPage: item.amountOfPage + 1,
+            pages: pageData,
+          };
+        }
+        return item;
+      });
+      return { data: newData };
+    });
+  },
+  requestAccess: (name) =>
+    set((state) => {
+      const updatedData = state.data.map((item) => {
+        if (item.name.toLowerCase() === name.toLowerCase()) {
+          return { ...item, submitted: true };
+        }
+        return item;
+      });
+      return { data: updatedData };
+    }),
+  addRequestAccessToRequest: (name) =>
+    set((state) => {
+      const updatedData = state.data.map((item) => {
+        if (item.name.toLowerCase() === "request") {
+          let data = item.data;
+          let updates = [...data, `Access request raised for ${name}`];
+          return {
+            ...item,
+            Request: updates,
+          };
+        }
+        return item;
+      });
+      return { data: updatedData };
     }),
 });
 

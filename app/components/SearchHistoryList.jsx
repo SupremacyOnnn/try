@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import PropTypes from "prop-types";
-import { FaSearch, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 const SearchHistoryList = ({
   searchHistory,

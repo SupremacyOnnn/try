@@ -28,13 +28,14 @@
        "metricId":[
           "metricId1",
           "metricId2",
-          "metricId3"
+          "metricId3" 
        ],
        "type":"card",
        "data":97,
        "calculation":"",
        "visualAvialable":"Universal",
-       "affliateApplicability":true
+       "affliateApplicability":true,
+       "submitted":false
     },
     {
        "name":"Kpi2",
@@ -70,7 +71,8 @@
        "data":91,
        "calculation":"",
        "visualAvialable":"Universal",
-       "affliateApplicability":true
+       "affliateApplicability":true,
+       "submitted":false
     },
     {
        "name":"Kpi3",
@@ -107,7 +109,8 @@
        "data":87,
        "calculation":"",
        "visualAvialable":"Universal",
-       "affliateApplicability":true
+       "affliateApplicability":false,
+       "submitted":false
     },
     {
        "name":"Kpi4",
@@ -143,7 +146,8 @@
        "data":79,
        "calculation":"",
        "visualAvialable":"Universal",
-       "affliateApplicability":true
+       "affliateApplicability":true,
+       "submitted":false
     },
     {
        "name":"Kpi5",
@@ -248,7 +252,8 @@
        },
        "calculation":"",
        "visualAvialable":"Universal",
-       "affliateApplicability":true
+       "affliateApplicability":true,
+       "submitted":false
     },
     {
        "name":"Kpi6",
@@ -371,7 +376,8 @@
        },
        "calculation":"",
        "visualAvialable":"Universal",
-       "affliateApplicability":true
+       "affliateApplicability":false,
+       "submitted":false
     },
     {
        "name":"Kpi7",
@@ -478,7 +484,8 @@
        },
        "calculation":"",
        "visualAvialable":"Universal",
-       "affliateApplicability":true
+       "affliateApplicability":true,
+       "submitted":false
     },
     {
        "name":"Kpi8",
@@ -599,7 +606,8 @@
        },
        "calculation":"",
        "visualAvialable":"Universal",
-       "affliateApplicability":true
+       "affliateApplicability":true,
+       "submitted":false
     },
     {
        "name":"Layout1",
@@ -639,7 +647,9 @@
        "KpiUsed":[
           
        ],
-       "noOfKpiUse":0
+       "pages":{"page1":[]},
+       "noOfKpiUse":0,
+       "submitted":false
     },
     {
        "name":"Layout2",
@@ -671,13 +681,15 @@
           "metricId3"
        ],
        "type":"layout",
-       "amountOfPage":1,
+       "amountOfPage":2,
        "visualAvialable":"Universal",
        "affliateApplicability":true,
        "KpiUsed":[
           
        ],
-       "noOfKpiUse":0
+       "pages":{"page1":[],"page2":[]},
+       "noOfKpiUse":0,
+       "submitted":false
     },
     {
        "name":"Layout3",
@@ -711,13 +723,15 @@
           "metricId3"
        ],
        "type":"layout",
-       "amountOfPage":1,
+       "amountOfPage":3,
        "visualAvialable":"Universal",
        "affliateApplicability":true,
        "KpiUsed":[
           
        ],
-       "noOfKpiUse":0
+       "pages":{"page1":[],"page2":[],"page3":[]},
+       "noOfKpiUse":0,
+       "submitted":false
     },
     {
        "name":"Layout4",
@@ -749,13 +763,15 @@
           "metricId3"
        ],
        "type":"layout",
-       "amountOfPage":1,
+       "amountOfPage":4,
        "visualAvialable":"Universal",
        "affliateApplicability":true,
        "KpiUsed":[
           
        ],
-       "noOfKpiUse":0
+       "pages":{"page1":[],"page2":[],"page3":[],"page4":[]},
+       "noOfKpiUse":0,
+       "submitted":false
     },
     {
        "name":"Layout5",
@@ -789,13 +805,15 @@
           "metricId3"
        ],
        "type":"layout",
-       "amountOfPage":1,
+       "amountOfPage":5,
        "visualAvialable":"Universal",
        "affliateApplicability":true,
        "KpiUsed":[
           
        ],
-       "noOfKpiUse":0
+       "pages":{"page1":[],"page2":[],"page3":[],"page4":[],"page5":[]},
+       "noOfKpiUse":0,
+       "submitted":false
     },
     {
        "name":"Layout6",
@@ -827,13 +845,15 @@
           "metricId3"
        ],
        "type":"layout",
-       "amountOfPage":1,
+       "amountOfPage":6,
        "visualAvialable":"Universal",
        "affliateApplicability":true,
        "KpiUsed":[
           
        ],
-       "noOfKpiUse":0
+       "pages":{"page1":[],"page2":[],"page3":[],"page4":[],"page5":[],"page6":[]},
+       "noOfKpiUse":0,
+       "submitted":false
     },
     {
        "name":"StoryBoard1",
@@ -867,9 +887,12 @@
           "metricId3"
        ],
        "type":"story",
-       "coupled":6,
+       "noOfKpiUse":2,
+       "amountOfPage":1,
        "affliateApplicability":true,
-       "KpiUsed":9001
+       "KpiUsed":["Kpi1","Kpi2"],
+       "visualAvialable":"Universal",
+       "submitted":false
     },
     {
        "name":"StoryBoard2",
@@ -903,9 +926,12 @@
           "metricId3"
        ],
        "type":"story",
-       "coupled":6,
+       "noOfKpiUse":2,
+       "amountOfPage":1,
        "affliateApplicability":true,
-       "KpiUsed":9001
+       "KpiUsed":["Kpi7","Kpi8"],
+       "visualAvialable":"Universal",
+       "submitted":false
     },
     {
        "name":"StoryBoard3",
@@ -937,8 +963,19 @@
           "metricId3"
        ],
        "type":"story",
-       "coupled":6,
+       "noOfKpiUse":2,
+       "amountOfPage":1,
        "affliateApplicability":true,
-       "KpiUsed":9001
+       "KpiUsed":["Kpi4","Kpi5"],
+       "visualAvialable":"Universal",
+       "submitted":false
+    },{
+      "name":"Request",
+       "description":"Requested Kpi's listed here",
+       "tags":[
+          "request"
+       ],
+       "data":[]
+
     }
  ]

@@ -10,22 +10,22 @@ const CardsCollection = ({ name = "default name", data = [] }) => {
     );
     data = filteredSuggestions;
   }
+
   function capitalizeFirstLetter(str) {
     return str[0].toUpperCase() + str.slice(1);
   }
+
   name = capitalizeFirstLetter(name);
   const [showAll, setShowAll] = useState(false);
-  const [lim, setLim] = useState(8);
+  const [lim, setLim] = useState(4);
   const len = data.length;
-
-  // const cardsArray = Array.from({ length: len }, (_, i) => i + 1);
 
   const updateLimit = () => {
     const width = window.innerWidth;
     if (width >= 1024) {
       setLim(6);
     } else if (width >= 768) {
-      setLim(6);
+      setLim(4);
     } else {
       setLim(4);
     }
@@ -42,15 +42,15 @@ const CardsCollection = ({ name = "default name", data = [] }) => {
       <div className="w-full flex justify-start mt-4 ml-24">
         <p className="text-4xl font-sans font-bold">{name}</p>
       </div>
-      <main className="flex flex-row items-center px-24 py-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      <main className="px-24 py-5 grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {data.slice(0, showAll ? len : lim).map((card) => (
           <Link key={card.name} href={`/info/${card.name}`}>
             <Cards key={card.name} id={card.name} data={card} />
           </Link>
         ))}
 
-        {data.length > lim ? (
-          <div className="sm:col-span-2 md:col-span-3 lg:col-span-3 flex items-center">
+        {data.length > lim && (
+          <div className="sm:col-span-2 md:col-span-2 lg:col-span-3 flex items-center">
             <button
               className="mt-4 p-2 bg-gray-400 text-white rounded mx-auto"
               onClick={() => setShowAll(!showAll)}
@@ -58,7 +58,7 @@ const CardsCollection = ({ name = "default name", data = [] }) => {
               {showAll ? "Show Less" : "Show More"}
             </button>
           </div>
-        ) : null}
+        )}
       </main>
     </>
   );
