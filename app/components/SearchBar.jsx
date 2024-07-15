@@ -73,6 +73,7 @@ const SearchBar = () => {
   const handleSelectHistoryItem = (item) => {
     setSearchedItem(item);
     handleSearchSubmit(item);
+    setRecentTyped(item);
   };
 
   const handleDeleteHistoryItem = (item) => {
