@@ -138,11 +138,32 @@ const searchStore = (set, get) => ({
     set((state) => {
       const updatedData = state.data.map((item) => {
         if (item.name.toLowerCase() === "request") {
-          let data = item.data;
-          let updates = [...data, `Access request raised for ${name}`];
+          let newRequestData = [
+            ...item.data,
+            `Access request raised for ${name}`,
+          ];
           return {
             ...item,
-            Request: updates,
+            data: newRequestData,
+          };
+        }
+        return item;
+      });
+      return { data: updatedData };
+    }),
+  approveRequest: (name) =>
+    set((state) => {
+      const updatedData = state.data.map((item) => {
+        if (item.name.toLowerCase() === name.toLowerCase()) {
+          return { ...item, affliateApplicability: true };
+        }
+        if (item.name.toLowerCase() === "request") {
+          return {
+            ...item,
+            data: item.data.filter(
+              (request) =>
+                !request.includes(`Access request raised for ${name}`)
+            ),
           };
         }
         return item;
